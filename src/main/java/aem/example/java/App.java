@@ -9,6 +9,7 @@ import aem.example.java.creational.factory.ResourceType;
 import aem.example.java.creational.singleton.BookRegistrySingleton;
 import aem.example.java.structural.adapter.Movie;
 import aem.example.java.structural.adapter.Publisher;
+import aem.example.java.structural.bridge.*;
 
 import java.util.logging.Logger;
 
@@ -65,5 +66,16 @@ public class App {
         System.out.println(Publisher.publish(movie));
         aem.example.java.structural.adapter.Book book1 = new aem.example.java.structural.adapter.Book("Java design pattern that...");
         System.out.println(Publisher.publish(book1));
+
+        logger.info("Bridge pattern...");
+        aem.example.java.structural.bridge.Book book2 = new aem.example.java.structural.bridge.Book("Java pattern for real life");
+        aem.example.java.structural.bridge.Movie movie1 = new aem.example.java.structural.bridge.Movie("Java 11 in real life".getBytes());
+        ResourceReader bookReader = new BookReader(book2);
+        ResourceReader movieReader = new MovieReader(movie1);
+
+        PublisherAbstraction publisherBook = new PublisherAbstractionImpl(bookReader);
+        PublisherAbstraction publisherMovie = new PublisherAbstractionImpl(movieReader);
+        System.out.println(String.format("Read content %s with store %s", publisherBook.readContent(), publisherBook.store()));
+        System.out.println(String.format("Read content %s with store %s", new String((byte[]) publisherMovie.readContent()), publisherMovie.store()));
     }
 }
