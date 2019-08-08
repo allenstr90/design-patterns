@@ -12,6 +12,8 @@ import aem.example.java.structural.adapter.Publisher;
 import aem.example.java.structural.bridge.*;
 import aem.example.java.structural.composite.CompositeResource;
 import aem.example.java.structural.composite.Location;
+import aem.example.java.structural.decorator.BookPublisher;
+import aem.example.java.structural.decorator.SupportFileSystemPublish;
 
 import java.util.logging.Logger;
 
@@ -85,5 +87,12 @@ public class App {
         resource.add(new aem.example.java.structural.composite.Movie(1.0, Location.INTERNET, "Java in action"));
         resource.add(new aem.example.java.structural.composite.Book(1.0, "Spring tutorial"));
         System.out.println(String.format("The projection is %f", resource.projection()));
+
+        logger.info("Decorator pattern");
+        aem.example.java.structural.decorator.Book book3 = new aem.example.java.structural.decorator.Book("New in java 11");
+        aem.example.java.structural.decorator.Publisher publisher = new BookPublisher(book3);
+        aem.example.java.structural.decorator.Publisher publisherFileSystem = new SupportFileSystemPublish(publisher);
+        ((SupportFileSystemPublish) publisherFileSystem).saveToFile("/home/myPath");
+
     }
 }
