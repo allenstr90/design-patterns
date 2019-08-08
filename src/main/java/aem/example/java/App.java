@@ -10,6 +10,8 @@ import aem.example.java.creational.singleton.BookRegistrySingleton;
 import aem.example.java.structural.adapter.Movie;
 import aem.example.java.structural.adapter.Publisher;
 import aem.example.java.structural.bridge.*;
+import aem.example.java.structural.composite.CompositeResource;
+import aem.example.java.structural.composite.Location;
 
 import java.util.logging.Logger;
 
@@ -77,5 +79,11 @@ public class App {
         PublisherAbstraction publisherMovie = new PublisherAbstractionImpl(movieReader);
         System.out.println(String.format("Read content %s with store %s", publisherBook.readContent(), publisherBook.store()));
         System.out.println(String.format("Read content %s with store %s", new String((byte[]) publisherMovie.readContent()), publisherMovie.store()));
+
+        logger.info("Composite pattern");
+        aem.example.java.structural.composite.Resource resource = new CompositeResource();
+        resource.add(new aem.example.java.structural.composite.Movie(1.0, Location.INTERNET, "Java in action"));
+        resource.add(new aem.example.java.structural.composite.Book(1.0, "Spring tutorial"));
+        System.out.println(String.format("The projection is %f", resource.projection()));
     }
 }
