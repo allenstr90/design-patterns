@@ -15,6 +15,8 @@ import aem.example.java.structural.composite.Location;
 import aem.example.java.structural.decorator.BookPublisher;
 import aem.example.java.structural.decorator.SupportFileSystemPublish;
 import aem.example.java.structural.facade.IndexerFacade;
+import aem.example.java.structural.flyweight.BuilderRegistry;
+import aem.example.java.structural.flyweight.FormatType;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -99,6 +101,10 @@ public class App {
         logger.info("Facade pattern");
         IndexerFacade.indexResource("digital", "Java tutorial");
         IndexerFacade.indexResource("other", "Other content");
+
+        logger.info("Flyweight pattern");
+        BuilderRegistry.getBookBuilder(FormatType.DIGITAL);
+        BuilderRegistry.getBookBuilder(FormatType.DIGITAL);
 
     }
 }
