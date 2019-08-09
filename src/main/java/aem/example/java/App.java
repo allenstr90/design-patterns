@@ -14,6 +14,7 @@ import aem.example.java.structural.composite.CompositeResource;
 import aem.example.java.structural.composite.Location;
 import aem.example.java.structural.decorator.BookPublisher;
 import aem.example.java.structural.decorator.SupportFileSystemPublish;
+import aem.example.java.structural.facade.IndexerFacade;
 
 import java.util.logging.Logger;
 
@@ -93,6 +94,10 @@ public class App {
         aem.example.java.structural.decorator.Publisher publisher = new BookPublisher(book3);
         aem.example.java.structural.decorator.Publisher publisherFileSystem = new SupportFileSystemPublish(publisher);
         ((SupportFileSystemPublish) publisherFileSystem).saveToFile("/home/myPath");
+
+        logger.info("Facade pattern");
+        IndexerFacade.indexResource("digital", "Java tutorial");
+        IndexerFacade.indexResource("other", "Other content");
 
     }
 }
