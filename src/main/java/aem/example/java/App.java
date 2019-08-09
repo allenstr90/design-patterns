@@ -17,6 +17,7 @@ import aem.example.java.structural.decorator.SupportFileSystemPublish;
 import aem.example.java.structural.facade.IndexerFacade;
 import aem.example.java.structural.flyweight.BuilderRegistry;
 import aem.example.java.structural.flyweight.FormatType;
+import aem.example.java.structural.proxy.ProxyPublisher;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -106,5 +107,8 @@ public class App {
         BuilderRegistry.getBookBuilder(FormatType.DIGITAL);
         BuilderRegistry.getBookBuilder(FormatType.DIGITAL);
 
+        logger.info("Proxy pattern");
+        aem.example.java.structural.proxy.Publisher proxy = new ProxyPublisher();
+        proxy.publish();
     }
 }
