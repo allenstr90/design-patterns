@@ -1,5 +1,5 @@
 package aem.example.java.structural.composite;
-/**
+/*
  * Composite design pattern helps to compose the objects into tree structures to represent whole-part hierarchies.
  * Composite lets clients treat individual objects and compositions of objects uniformly.
  *
@@ -11,4 +11,4 @@ package aem.example.java.structural.composite;
  * Flyweight design pattern is often combined with Composite to implement shared leaf nodes.
  *
  * https://howtodoinjava.com/design-patterns/structural/composite-design-pattern/
- * */
+ */

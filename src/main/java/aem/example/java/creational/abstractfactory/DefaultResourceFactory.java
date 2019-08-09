@@ -1,6 +1,9 @@
-package aem.example.java.creational.abstractFactory;
+package aem.example.java.creational.abstractfactory;
 
 public class DefaultResourceFactory {
+
+    private DefaultResourceFactory() {
+    }
 
     public static Resource from(ResourceType type) {
         switch (type) {

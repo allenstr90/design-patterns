@@ -1,4 +1,4 @@
-package aem.example.java.creational.abstractFactory;
+package aem.example.java.creational.abstractfactory;
 
 import java.util.logging.Logger;
 

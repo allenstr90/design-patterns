@@ -1,6 +1,6 @@
 package aem.example.java.creational.builder;
 
-/**
+/*
  * Builder design pattern is an alternative way to construct complex objects and should be used only when
  * we want to build different types of immutable objects using same object building process.
  *

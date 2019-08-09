@@ -1,4 +1,4 @@
-package aem.example.java.creational.abstractFactory;
+package aem.example.java.creational.abstractfactory;
 
 public abstract class Resource {
     private ResourceType type;

@@ -21,4 +21,8 @@ public class ResourceStatus {
     public List<ResourceStatus> getStatuses() {
         return statuses;
     }
+
+    public String getInfo() {
+        return info;
+    }
 }

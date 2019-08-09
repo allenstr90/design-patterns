@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class IndexerFacade {
 
+    private IndexerFacade() {
+    }
+
     public static void indexResource(String type, String content) {
         System.out.println(String.format("Finding resource type %s and assemble and work with resource content %s", type, content));
         ResourceType resourceType = Arrays.stream(ResourceType.values())

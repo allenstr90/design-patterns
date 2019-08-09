@@ -1,8 +1,11 @@
-package aem.example.java.creational.abstractFactory;
+package aem.example.java.creational.abstractfactory;
 
 public class DigitalResourceFactory {
 
-    public static Resource from(ResourceType type){
+    private DigitalResourceFactory() {
+    }
+
+    public static Resource from(ResourceType type) {
         switch (type) {
             case BOOK:
                 return new Book(Format.DIGITAL);

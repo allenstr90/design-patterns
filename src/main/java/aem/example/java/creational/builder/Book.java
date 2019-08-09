@@ -8,12 +8,12 @@ public class Book {
     private String edition;
     private Double price;
 
-    private Book(BookBuilder BookBuilder) {
-        this.id = BookBuilder.id;
-        this.title = BookBuilder.title;
-        this.isbn = BookBuilder.isbn;
-        this.edition = BookBuilder.edition;
-        this.price = BookBuilder.price;
+    private Book(BookBuilder bookBuilder) {
+        this.id = bookBuilder.id;
+        this.title = bookBuilder.title;
+        this.isbn = bookBuilder.isbn;
+        this.edition = bookBuilder.edition;
+        this.price = bookBuilder.price;
     }
 
     public static BookBuilder builder() {
@@ -60,9 +60,6 @@ public class Book {
         private String isbn;
         private String edition;
         private Double price;
-
-        public BookBuilder() {
-        }
 
         //<editor-fold desc="Setters">
         public BookBuilder setIsbn(String isbn) {

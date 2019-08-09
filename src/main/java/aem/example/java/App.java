@@ -1,7 +1,7 @@
 package aem.example.java;
 
-import aem.example.java.creational.abstractFactory.AbstractResourceFactory;
-import aem.example.java.creational.abstractFactory.Format;
+import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
+import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
 import aem.example.java.creational.factory.Resource;
 import aem.example.java.creational.factory.ResourceFactory;
@@ -16,6 +16,7 @@ import aem.example.java.structural.decorator.BookPublisher;
 import aem.example.java.structural.decorator.SupportFileSystemPublish;
 import aem.example.java.structural.facade.IndexerFacade;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static aem.example.java.creational.prototype.PrototypeFactory.Prototypes;
@@ -45,7 +46,7 @@ public class App {
             System.out.println(protoBook);
             System.out.println(protoMovie);
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, e.getMessage(), e);
         }
 
         logger.info("Factory pattern");
@@ -56,8 +57,8 @@ public class App {
 
         logger.info("Abstract Factory pattern");
 
-        aem.example.java.creational.abstractFactory.Resource digitalBook = AbstractResourceFactory.from(aem.example.java.creational.abstractFactory.ResourceType.BOOK, Format.DIGITAL);
-        aem.example.java.creational.abstractFactory.Resource defaultMovie = AbstractResourceFactory.from(aem.example.java.creational.abstractFactory.ResourceType.MOVIE, Format.DEFAULT);
+        aem.example.java.creational.abstractfactory.Resource digitalBook = AbstractResourceFactory.from(aem.example.java.creational.abstractfactory.ResourceType.BOOK, Format.DIGITAL);
+        aem.example.java.creational.abstractfactory.Resource defaultMovie = AbstractResourceFactory.from(aem.example.java.creational.abstractfactory.ResourceType.MOVIE, Format.DEFAULT);
         System.out.println(digitalBook.toString());
         System.out.println(defaultMovie.toString());
 

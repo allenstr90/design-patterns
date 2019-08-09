@@ -1,16 +1,16 @@
 package aem.example.java.structural.adapter;
-/**
+/*
  * An adapter convert the interface of a class into another interface clients expect.
  * It lets classes work together that couldn’t otherwise because of incompatible interfaces.
  *
  * System use a class, that class consume a specific type, create a class that extends of specific type and transform
  * the new type to the specific type
- *   System Class                               Adapter Class        Resource to Adapt
- *      ||                                          ||                 ||
- *      \/                                          \/                 \/
- *  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ * System Class                               Adapter Class        Resource to Adapt
+ * ||                                          ||                 ||
+ * \/                                          \/                 \/
+ * BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
  *
- * <p>
+ *
  * Explain (Use interfaces for simplicity):
  * -Publisher use a Synopsis interface to publish content ( In movie is synopsis)
  * -Need publish book synopsis ( In book is resume)
@@ -18,7 +18,7 @@ package aem.example.java.structural.adapter;
  * -Interface Resume extends of Synopsis
  * -Book implement Resume
  * -Now Publisher can publish a book synopsis
- * </p>
+ *
  *
  * https://howtodoinjava.com/design-patterns/structural/adapter-design-pattern-in-java/
  *

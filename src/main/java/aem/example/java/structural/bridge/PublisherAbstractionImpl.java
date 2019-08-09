@@ -1,6 +1,6 @@
 package aem.example.java.structural.bridge;
 
-public class PublisherAbstractionImpl implements PublisherAbstraction{
+public class PublisherAbstractionImpl implements PublisherAbstraction {
     private ResourceReader resource;
 
     public PublisherAbstractionImpl(ResourceReader resource) {

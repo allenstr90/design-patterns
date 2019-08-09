@@ -2,6 +2,9 @@ package aem.example.java.creational.factory;
 
 public class ResourceFactory {
 
+    private ResourceFactory() {
+    }
+
     public static Resource from(ResourceType type) {
         switch (type) {
             case BOOK:
