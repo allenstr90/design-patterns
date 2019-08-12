@@ -17,6 +17,9 @@ import aem.example.java.behavioral.observer.Observable;
 import aem.example.java.behavioral.observer.Observer;
 import aem.example.java.behavioral.state.IndexingContext;
 import aem.example.java.behavioral.state.ReadState;
+import aem.example.java.behavioral.strategy.CloudStore;
+import aem.example.java.behavioral.strategy.DiskStore;
+import aem.example.java.behavioral.strategy.StoreContext;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -188,5 +191,15 @@ public class App {
         IndexingContext context = new IndexingContext(ReadState.getInstance());
         context.update();
         context.update();
+
+        logger.info("Strategy pattern");
+        StoreContext storeContext = new StoreContext(() -> System.out.println("Default store strategy"));
+        storeContext.store();
+        storeContext.setStrategy(() -> System.out.println("Try other strategy"));
+        storeContext.store();
+        storeContext.setStrategy(new DiskStore());
+        storeContext.store();
+        storeContext.setStrategy(new CloudStore());
+        storeContext.store();
     }
 }
