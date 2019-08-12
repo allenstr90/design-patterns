@@ -1,5 +1,9 @@
 package aem.example.java;
 
+import aem.example.java.behavioral.chainresponsibility.BookSaver;
+import aem.example.java.behavioral.chainresponsibility.DefaultSaver;
+import aem.example.java.behavioral.chainresponsibility.DigitalSaver;
+import aem.example.java.behavioral.chainresponsibility.Store;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -110,5 +114,18 @@ public class App {
         logger.info("Proxy pattern");
         aem.example.java.structural.proxy.Publisher proxy = new ProxyPublisher();
         proxy.publish();
+
+        logger.info("Chain of Responsibility pattern");
+        aem.example.java.behavioral.chainresponsibility.Resource resource1 = new aem.example.java.behavioral.chainresponsibility.Resource(aem.example.java.behavioral.chainresponsibility.ResourceType.DIGITAL);
+        aem.example.java.behavioral.chainresponsibility.Resource resource2 = new aem.example.java.behavioral.chainresponsibility.Resource(aem.example.java.behavioral.chainresponsibility.ResourceType.DEFAULT);
+        Store managerStore = new BookSaver();
+        // config
+        Store defaultStore = new DefaultSaver();
+        Store digitalStore = new DigitalSaver(defaultStore);
+        ((BookSaver) managerStore).setNextStore(digitalStore);
+        // end config
+        managerStore.store(resource1);
+        managerStore.store(resource2);
+
     }
 }
