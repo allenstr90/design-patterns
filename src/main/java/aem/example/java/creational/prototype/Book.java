@@ -1,7 +1,5 @@
 package aem.example.java.creational.prototype;
 
-import java.util.logging.Logger;
-
 public class Book implements PrototypeCapable {
     private String title;
 
@@ -21,7 +19,7 @@ public class Book implements PrototypeCapable {
 
     @Override
     public PrototypeCapable clone() throws CloneNotSupportedException {
-        Logger.getLogger(Book.class.getName()).info("Cloning...");
+        System.out.println("Cloning book...");
         return (Book) super.clone();
     }
 
