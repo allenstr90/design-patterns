@@ -12,6 +12,7 @@ import aem.example.java.behavioral.iterator.MyIterator;
 import aem.example.java.behavioral.iterator.MyList;
 import aem.example.java.behavioral.mediator.Processor;
 import aem.example.java.behavioral.mediator.ProcessorPool;
+import aem.example.java.behavioral.memento.Resource.ResourceSnapshot;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -159,5 +160,13 @@ public class App {
         processor1.send("code 1", "B1");
         processor2.send("result a", "A1");
 
+        logger.info("Memento pattern");
+        aem.example.java.behavioral.memento.Resource resource3 = new aem.example.java.behavioral.memento.Resource("A1", "In java 11...");
+        System.out.println("Original state -> " + resource3.toString());
+        ResourceSnapshot original = resource3.snapshot();
+        resource3.setContent("Spring boot in...");
+        System.out.println("Change state -> " + resource3.toString());
+        resource3.restore(original);
+        System.out.println("Back to original state -> " + resource3.toString());
     }
 }
