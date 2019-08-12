@@ -15,6 +15,8 @@ import aem.example.java.behavioral.mediator.ProcessorPool;
 import aem.example.java.behavioral.memento.Resource.ResourceSnapshot;
 import aem.example.java.behavioral.observer.Observable;
 import aem.example.java.behavioral.observer.Observer;
+import aem.example.java.behavioral.state.IndexingContext;
+import aem.example.java.behavioral.state.ReadState;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -181,5 +183,10 @@ public class App {
         System.out.println("Unsubscribe observer2");
         observable.unSubscribe(observer2);
         observable.notify("Clean observers");
+
+        logger.info("State pattern");
+        IndexingContext context = new IndexingContext(ReadState.getInstance());
+        context.update();
+        context.update();
     }
 }
