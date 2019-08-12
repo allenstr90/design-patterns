@@ -4,6 +4,9 @@ import aem.example.java.behavioral.chainresponsibility.BookSaver;
 import aem.example.java.behavioral.chainresponsibility.DefaultSaver;
 import aem.example.java.behavioral.chainresponsibility.DigitalSaver;
 import aem.example.java.behavioral.chainresponsibility.Store;
+import aem.example.java.behavioral.command.ContentReader;
+import aem.example.java.behavioral.command.Operation;
+import aem.example.java.behavioral.command.TitleReader;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -127,5 +130,11 @@ public class App {
         managerStore.store(resource1);
         managerStore.store(resource2);
 
+        logger.info("Command pattern");
+        aem.example.java.behavioral.command.Book book4 = new aem.example.java.behavioral.command.Book("Command book", "Inthe command pattern...");
+        Operation titleRead = new TitleReader(book4);
+        Operation contentRead = new ContentReader(book4);
+        titleRead.execute();
+        contentRead.execute();
     }
 }
