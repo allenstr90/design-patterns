@@ -10,6 +10,8 @@ import aem.example.java.behavioral.command.TitleReader;
 import aem.example.java.behavioral.iterator.Item;
 import aem.example.java.behavioral.iterator.MyIterator;
 import aem.example.java.behavioral.iterator.MyList;
+import aem.example.java.behavioral.mediator.Processor;
+import aem.example.java.behavioral.mediator.ProcessorPool;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -147,5 +149,15 @@ public class App {
         while (iterator.hasNext()) {
             System.out.println(String.format("Current: %s, Next: %s", iterator.current().getName(), iterator.next().getName()));
         }
+
+        logger.info("Mediator pattern");
+        ProcessorPool pool = new ProcessorPool();
+        Processor processor1 = new Processor("A1", pool);
+        Processor processor2 = new Processor("B1", pool);
+        pool.add(processor1);
+        pool.add(processor2);
+        processor1.send("code 1", "B1");
+        processor2.send("result a", "A1");
+
     }
 }
