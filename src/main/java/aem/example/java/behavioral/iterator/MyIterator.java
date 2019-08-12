@@ -26,12 +26,12 @@ public interface MyIterator<T> {
         }
 
         @Override
-        public Object next() {
+        public T next() {
             return ts[hasNext() ? ++position : position];
         }
 
         @Override
-        public Object current() {
+        public T current() {
             return ts[position];
         }
 

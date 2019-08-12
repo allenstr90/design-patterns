@@ -13,6 +13,8 @@ import aem.example.java.behavioral.iterator.MyList;
 import aem.example.java.behavioral.mediator.Processor;
 import aem.example.java.behavioral.mediator.ProcessorPool;
 import aem.example.java.behavioral.memento.Resource.ResourceSnapshot;
+import aem.example.java.behavioral.observer.Observable;
+import aem.example.java.behavioral.observer.Observer;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -168,5 +170,16 @@ public class App {
         System.out.println("Change state -> " + resource3.toString());
         resource3.restore(original);
         System.out.println("Back to original state -> " + resource3.toString());
+
+        logger.info("Observer pattern");
+        Observer observer = new Observer.MyObserver("Obs1");
+        Observer observer2 = new Observer.MyObserver("Obs2");
+        Observable observable = new Observable.MyObservable();
+        observable.subscribe(observer);
+        observable.subscribe(observer2);
+        observable.notify("Hello observers");
+        System.out.println("Unsubscribe observer2");
+        observable.unSubscribe(observer2);
+        observable.notify("Clean observers");
     }
 }
