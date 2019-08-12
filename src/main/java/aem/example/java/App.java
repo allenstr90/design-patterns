@@ -7,6 +7,9 @@ import aem.example.java.behavioral.chainresponsibility.Store;
 import aem.example.java.behavioral.command.ContentReader;
 import aem.example.java.behavioral.command.Operation;
 import aem.example.java.behavioral.command.TitleReader;
+import aem.example.java.behavioral.iterator.Item;
+import aem.example.java.behavioral.iterator.MyIterator;
+import aem.example.java.behavioral.iterator.MyList;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -136,5 +139,13 @@ public class App {
         Operation contentRead = new ContentReader(book4);
         titleRead.execute();
         contentRead.execute();
+
+        logger.info("Iterator pattern");
+        Item[] items = new Item[]{new Item("Shoes"), new Item("T-shirt"), new Item("Phone")};
+        MyList<Item> itemMyList = new MyList.MyListImpl<>(items);
+        MyIterator<Item> iterator = itemMyList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(String.format("Current: %s, Next: %s", iterator.current().getName(), iterator.next().getName()));
+        }
     }
 }
