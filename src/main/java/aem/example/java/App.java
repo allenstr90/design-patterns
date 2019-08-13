@@ -20,6 +20,8 @@ import aem.example.java.behavioral.state.ReadState;
 import aem.example.java.behavioral.strategy.CloudStore;
 import aem.example.java.behavioral.strategy.DiskStore;
 import aem.example.java.behavioral.strategy.StoreContext;
+import aem.example.java.behavioral.visitor.IndexerVisitor;
+import aem.example.java.behavioral.visitor.Visitable;
 import aem.example.java.creational.abstractfactory.AbstractResourceFactory;
 import aem.example.java.creational.abstractfactory.Format;
 import aem.example.java.creational.builder.Book;
@@ -39,6 +41,8 @@ import aem.example.java.structural.flyweight.BuilderRegistry;
 import aem.example.java.structural.flyweight.FormatType;
 import aem.example.java.structural.proxy.ProxyPublisher;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -216,5 +220,13 @@ public class App {
         System.out.println(resource5);
         resource5.build();
         System.out.println(resource5);
+
+        logger.info("Visitor pattern");
+        List<Visitable> visitables = Arrays.asList(new aem.example.java.behavioral.visitor.Book("Java 11"),
+                new aem.example.java.behavioral.visitor.Movie("In action"),
+                new aem.example.java.behavioral.visitor.Book("Spring Boot"));
+        IndexerVisitor indexerVisitor = new IndexerVisitor();
+        visitables.forEach(visitable -> visitable.accept(indexerVisitor));
+        System.out.println(indexerVisitor.getIndexedElements());
     }
 }
