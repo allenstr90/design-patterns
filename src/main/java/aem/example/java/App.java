@@ -201,5 +201,20 @@ public class App {
         storeContext.store();
         storeContext.setStrategy(new CloudStore());
         storeContext.store();
+
+        logger.info("Template pattern");
+        aem.example.java.behavioral.template.Resource resource4 =
+                new aem.example.java.behavioral.template.Book("Java 11", "Develop app...", 400);
+
+        aem.example.java.behavioral.template.Resource resource5 =
+                new aem.example.java.behavioral.template.Movie("Tuto 3", "In this tuto...", "Internet");
+
+        System.out.println(resource4);
+        resource4.build();
+        System.out.println(resource4);
+
+        System.out.println(resource5);
+        resource5.build();
+        System.out.println(resource5);
     }
 }
