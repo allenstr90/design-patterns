@@ -6,8 +6,7 @@ package aem.example.java.structural.adapter;
  * System use a class, that class consume a specific type, create a class that extends of specific type and transform
  * the new type to the specific type
  * System Class                               Adapter Class        Resource to Adapt
- * ||                                          ||                 ||
- * \/                                          \/                 \/
+ *  |                                          |                     |
  * BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
  *
  *

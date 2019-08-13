@@ -7,7 +7,7 @@ public class Book extends Resource {
         super(type, content);
     }
 
-    private String getTitle() {
+    public String getTitle() {
         return super.content;
     }
 }
